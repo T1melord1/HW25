@@ -35,4 +35,13 @@ public class Human {
     public void setHeight(String height) {
         this.height = height;
     }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", age='" + age + '\'' +
+                ", height='" + height + '\'' +
+                '}';
+    }
 }
