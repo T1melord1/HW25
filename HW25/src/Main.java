@@ -19,6 +19,7 @@ public class Main {
         System.out.println(vasyaInput.get());
         Predicate<Integer> isAge = (age) -> age > 18;
         System.out.println(isAge);
+
     }
     public static String scanner(){
         return new Scanner(System.in).nextLine();
