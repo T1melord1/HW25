@@ -4,21 +4,19 @@ import java.util.function.Supplier;
 
 public class Main {
     public static void main(String[] args) {
-        Supplier<Human> vasyaInput = () -> {
-            String age = scanner();
+        Supplier<String> firstHuman = () -> {
             System.out.println("Введите имя, возраст и рост человека через Enter: ");
-            Human vasya = new Human(scanner(),age,scanner());
-            return vasya ;
-        };Supplier<Human> viktorInput = () -> {
+            Human human = new Human(scanner(),scanner(),scanner());
+            return human.getAge();
+        };Supplier<String> secondHuman = () -> {
             System.out.println("Введите имя, возраст и рост человека через Enter: ");
-            Human viktor = new Human(scanner(),scanner(),scanner());
-            return viktor;
+            Human human = new Human(scanner(),scanner(),scanner());
+            return human.getAge();
         };
-
-        System.out.println(viktorInput.get());
-        System.out.println(vasyaInput.get());
-        Predicate<Integer> isAge = (age) -> age > 18;
-        System.out.println(isAge);
+        Predicate<Integer> isAgeFirst = (human) -> human > 18;
+        Predicate<Integer> isAgeSecond = (human) -> human > 18;
+        System.out.println((isAgeFirst.test(Integer.parseInt(firstHuman.get()))));
+        System.out.println((isAgeSecond.test(Integer.parseInt(secondHuman.get()))));
 
     }
     public static String scanner(){
